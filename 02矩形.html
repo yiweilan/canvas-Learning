@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="keywords" content="" />
+		<meta name="description" content="不超过150个字符" />
+		<meta name="robots" content="index,follow" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+		<meta name="format-detection" content="telphone=no, email=no" />
+		<title></title>
+		<style type="text/css">
+			canvas{
+			  border: 1px solid #f66;
+			}
+		</style>
+	</head>
+	<body>
+	  <canvas id="canvas" width="500" height="500"></canvas>
+	</body>
+	<script type="text/javascript">
+		var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext('2d');
+		ctx.fillStyle = "#0f0";
+		
+		ctx.rect(100,100,150,150);
+		
+		ctx.fill();
+		
+		//-----------------------------
+		ctx.beginPath();//上下不影响
+		//-----------------------------
+		
+		ctx.fillStyle = "#00f";
+    
+    ctx.rect(260,260,150,150);
+    
+    ctx.fill();
+    
+    //-----------------------------
+    ctx.beginPath();//上下不影响
+    //-----------------------------
+    
+    ctx.strokeStyle = "#f66";
+    ctx.rect(10,340,150,150);
+    ctx.stroke();
+	</script>
+</html>

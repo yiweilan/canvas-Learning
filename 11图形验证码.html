@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="keywords" content="" />
+		<meta name="description" content="不超过150个字符" />
+		<meta name="robots" content="index,follow" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+		<meta name="format-detection" content="telphone=no, email=no" />
+		<title></title>
+		<style type="text/css">
+			canvas{
+			  border: 1px solid #f66;
+			}
+		</style>
+	</head>
+	<body>
+	  <button onclick="changeCode()">换一张</button>
+	  <canvas id="canvas" width="100" height="50"></canvas>
+	</body>
+	<script type="text/javascript">
+	  
+	  function getRandomCode(){
+	    return Math.floor(Math.random()*999 + 1000)
+	  }
+	  function changeCode(){
+	    var str = getRandomCode();
+	    drawImg(str)
+	  }
+	  
+	  function drawImg(str){
+	    var canvas = document.getElementById("canvas");
+	    var ctx = canvas.getContext('2d');
+	    ctx.clearRect(0,0,100,50)
+	    var lg = ctx.createLinearGradient(0,0,100,50);
+	    lg.addColorStop(0, 'red');
+	    lg.addColorStop(0.2, 'white');
+	    lg.addColorStop(0.5, 'green');
+	    lg.addColorStop(1, 'blue');
+	    
+	//  ctx.fillStyle = lg
+	    ctx.strokeStyle = lg
+	    //style  size family
+	    ctx.font = "italic 30px  黑体";
+	    
+	    ctx.textBaseline = "top"
+	    
+	    ctx.shadowOffsetX = 2;
+	    ctx.shadowOffsetY = 2;
+	    ctx.shadowBlur = 2;
+	    ctx.shadowColor = "#f66"
+	//  ctx.fillText(str,30,10)
+		ctx.strokeText(str, 30,10)
+	  }
+		
+		
+	</script>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="keywords" content="" />
+		<meta name="description" content="不超过150个字符" />
+		<meta name="robots" content="index,follow" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+		<meta name="format-detection" content="telphone=no, email=no" />
+		<title></title>
+		<style type="text/css">
+			canvas{
+			  border: 1px solid #f66;
+			}
+		</style>
+	</head>
+	<body>
+	  <canvas id="canvas" width="500" height="500"></canvas>
+	</body>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=AOUf9QvXB9BYD0qjc9oLdpdGk817GPNu"></script>
+
+	<script>
+	  var geolocation = new BMap.Geolocation();
+	  geolocation.getCurrentPosition(function(r){
+	    if(this.getStatus() == BMAP_STATUS_SUCCESS){
+	      console.log(r)
+	      alert('您的位置：'+r.address.city);
+	    }
+	    else {
+	      alert('failed'+this.getStatus());
+	    }       
+	  },{enableHighAccuracy: true})
+	</script>
+	
+	<script type="text/javascript">
+		var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext('2d');
+		
+		var img = new Image();
+		img.src = "test.jpg";
+		img.onload = function(){
+//		ctx.drawImage(img, 0,0)
+//      ctx.drawImage(img, 0,0, 500,500)
+        ctx.drawImage(img, 350,300, 100, 100, 0,0,500,500)
+
+		}
+	</script>
+</html>

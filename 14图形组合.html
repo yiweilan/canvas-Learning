@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="keywords" content="" />
+		<meta name="description" content="不超过150个字符" />
+		<meta name="robots" content="index,follow" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+		<meta name="format-detection" content="telphone=no, email=no" />
+		<title></title>
+		<style type="text/css">
+			canvas{
+			  border: 1px solid #f66;
+			}
+		</style>
+	</head>
+	<body>
+	  <canvas id="canvas" width="500" height="500"></canvas>
+	</body>
+	<script type="text/javascript">
+		var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext('2d');
+		/**
+		 *   context.globalCompositeOperation=type 
+   再接着绘制第二个图形 
+   type： 
+   source-over（默认值）:在原有图形上绘制新图形 
+   destination-over:在原有图形下绘制新图形 
+   source-in:显示原有图形和新图形的交集，新图形在上，所以颜色为新图形的颜色 
+   destination-in:显示原有图形和新图形的交集，原有图形在上，所以颜色为原有图形的颜色 
+   source-out:只显示新图形非交集部分 
+   destination-out:只显示原有图形非交集部分,是将交集的部分转化为透明 --------- 刮刮乐
+    可以实现刮刮乐
+   
+   source-atop:显示原有图形和交集部分，新图形在上，所以交集部分的颜色为新图形的颜色
+   destination-atop:显示新图形和交集部分，新图形在下，所以交集部分的颜色为原有图形的颜色 
+   lighter:原有图形和新图形都显示，交集部分做颜色叠加 
+   xor:重叠飞部分不现实 
+   copy:只显示新图形
+		 */
+		
+		ctx.fillStyle = "#f66";
+		ctx.fillRect(100,100,100,100)
+		
+		ctx.beginPath();
+		
+		ctx.globalCompositeOperation = "destination-out"
+		
+		ctx.fillStyle = "#0f0";
+		ctx.arc(200,200,50,0,Math.PI*2)
+		ctx.fill()
+	</script>
+</html>
