@@ -1,1 +1,1 @@
-# canvas-Learning
+# canvas-learning-demos
